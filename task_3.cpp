@@ -42,5 +42,16 @@ int task3(void) {
 	
 	matrix_output(matrix, n);
 
+	// [*][ ]
+	// [ ][ ]
+	for (int i = 0; i < n; ++i)
+		for (int j = 0; j < n - i; ++j)
+		{
+			matrix[i][j] = ((i + j + 1) * (i + j) / 2 + (i + j) % 2 * (i + 1) + (i + j + 1) % 2 * (j + 1));
+			matrix[n - i - 1][n - j - 1] = n * n + 1 - matrix[i][j];
+		}
+
+	matrix_output(matrix, n);
+
 	return 0;
 }
